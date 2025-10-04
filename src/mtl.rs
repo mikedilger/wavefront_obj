@@ -382,7 +382,7 @@ impl<'a> Parser<'a> {
     }
 
     // Bump texture
-    let mut bump = self.parse_map("map_bump")?;
+    let mut bump = self.parse_map("bump")?;
     if bump.is_none() {
       // Some implementations use map_bump instead
       bump = self.parse_map("map_bump")?;
