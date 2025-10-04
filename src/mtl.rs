@@ -43,7 +43,7 @@ pub struct Material {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
 #[allow(missing_docs)]
 pub enum Illumination {
-  Ambient,
+  Diffuse,
   AmbientDiffuse,
   AmbientDiffuseSpecular,
   ReflectionRayTrace,
@@ -297,7 +297,7 @@ impl<'a> Parser<'a> {
   fn parse_illumination(&mut self) -> Result<Illumination, ParseError> {
     self.parse_tag("illum")?;
     match self.parse_usize()? {
-      0 => Ok(Illumination::Ambient),
+      0 => Ok(Illumination::Diffuse),
       1 => Ok(Illumination::AmbientDiffuse),
       2 => Ok(Illumination::AmbientDiffuseSpecular),
       3 => Ok(Illumination::ReflectionRayTrace),
